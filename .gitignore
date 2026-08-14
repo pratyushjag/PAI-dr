@@ -1,0 +1,25 @@
+# Secrets — never commit real keys
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads
+uploads/
+
+# Node / React (for tomorrow)
+node_modules/
+build/
+dist/
+
+# OS / editor junk
+.DS_Store
+.vscode/
+
+backend/venv/

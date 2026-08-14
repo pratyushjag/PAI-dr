@@ -1,0 +1,54 @@
+Locked in. Here's the final stack:
+
+React + FastAPI + Gemini + SQLite + PyMuPDF, with Tesseract OCR gated as a fallback (only fires when PyMuPDF returns empty text).
+
+Now let me map out the architecture and file structure before writing code, so you can see the whole shape of it.
+
+**How the pieces talk to each other**
+
+1. User uploads a PDF in the React UI → sent to FastAPI
+2. FastAPI saves the file, runs PyMuPDF extraction → if text is empty, falls back to Tesseract OCR
+3. Extracted text is stored (tied to a document ID) and sent back to display
+4. User asks a question → FastAPI sends the question + document text to Gemini → answer comes back
+5. Every question/answer pair is saved to SQLite (chat history for that document)
+
+**Backend structure**
+
+```
+backend/
+├── main.py              # FastAPI app + routes
+├── config.py            # API keys, settings (reads from .env)
+├── database.py          # SQLite connection + setup
+├── models.py            # DB tables (documents, chat history)
+├── services/
+│   ├── pdf_service.py   # PyMuPDF extraction + OCR fallback
+│   └── llm_service.py   # Gemini calls
+├── requirements.txt
+└── .env                 # secrets (never committed)
+```
+
+**Frontend structure**
+
+```
+frontend/
+├── src/
+│   ├── App.jsx
+│   ├── components/
+│   │   ├── FileUpload.jsx    # upload PDF
+│   │   ├── TextViewer.jsx    # show extracted text
+│   │   └── ChatBox.jsx       # ask questions + history
+│   └── api.js               # calls to backend
+└── package.json
+```
+
+**The API endpoints** (these become your Swagger docs automatically)
+
+| Method | Route | Does |
+|---|---|---|
+| POST | `/upload` | Take PDF, extract text, return doc ID + text |
+| POST | `/ask` | Take question + doc ID, return Gemini answer |
+| GET | `/history/{doc_id}` | Return chat history for a document |
+
+That's the full blueprint. It hits every functional requirement and keeps things modular (each service does one job), which is exactly what the "clean, modular code" and "project architecture" criteria are looking for.
+
+One decision left that shapes how I build the Gemini part:
