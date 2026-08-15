@@ -325,15 +325,15 @@ Interactive documentation is available at `/docs` (Swagger UI) on the backend.
 
 **Initial interface (desktop)**
 
-![Initial UI](screenshots/pc_upload_ui_1)
+![Initial UI](screenshots/pc_upload_ui_1.png)
 
 **Document uploaded — text extracted (desktop)**
 
-![Document uploaded](screenshots/pc_upload_ui_2)
+![Document uploaded](screenshots/pc_upload_ui_2.png)
 
 **Graceful handling of a scanned PDF (desktop)**
 
-![Scanned PDF handling](screenshots/pc_upload_ui_ocr)
+![Scanned PDF handling](screenshots/pc_upload_ui_ocr.png)
 
 **Mobile — document uploaded and text extracted**
 
