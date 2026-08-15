@@ -7,7 +7,7 @@ load_dotenv()
 
 # --- Gemini (LLM) ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-lite-latest")
 MAX_DOC_TOKENS = int(os.getenv("MAX_DOC_TOKENS", "200000"))
 
 # --- Supabase Postgres (database) ---
