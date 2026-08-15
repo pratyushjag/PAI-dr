@@ -317,3 +317,17 @@ Interactive documentation is available at `/docs` (Swagger UI) on the backend.
   a momentary API blip doesn't surface as an error to the user.
 - **Graceful degradation.** Invalid and scanned PDFs produce clear, specific messages
   rather than crashes.
+
+  ## Screenshots
+
+**Initial interface (desktop)**
+
+![Initial UI](screenshots/desktop-initial.png)
+
+**Document uploaded — text extracted (desktop)**
+
+![Document uploaded](screenshots/desktop-uploaded.png)
+
+**Graceful handling of a scanned PDF (desktop)**
+
+![Scanned PDF handling](screenshots/desktop-scanned-handling.png)
