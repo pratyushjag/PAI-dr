@@ -1,0 +1,260 @@
+/* ---- Layout ---- */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.app-header h1 {
+  font-size: 1.9rem;
+  color: #0d1b2a;
+}
+.app-header p {
+  color: #5c6670;
+  margin-top: 4px;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.app-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+/* Two columns on desktop, stacked on mobile */
+.app-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 760px) {
+  .app-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column-title {
+  font-size: 1rem;
+  color: #5c6670;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.app-footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #9aa2ab;
+  font-size: 0.85rem;
+}
+
+/* ---- Upload ---- */
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.upload-label {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.upload-label:hover {
+  background: #1d4ed8;
+}
+.upload-filename {
+  color: #5c6670;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.upload-error {
+  color: #c0362c;
+  font-size: 0.9rem;
+}
+
+/* ---- Text viewer ---- */
+.viewer {
+  background: #fff;
+  border: 1px solid #e2e5e9;
+  border-radius: 10px;
+  padding: 16px;
+  height: 460px;
+  overflow-y: auto;
+}
+.viewer-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa2ab;
+  text-align: center;
+}
+.viewer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eef0f2;
+}
+.viewer-filename {
+  font-weight: 600;
+  color: #1f2328;
+  overflow-wrap: anywhere;
+}
+.viewer-meta {
+  font-size: 0.8rem;
+  color: #9aa2ab;
+}
+.viewer-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* ---- Chat ---- */
+.chat {
+  background: #fff;
+  border: 1px solid #e2e5e9;
+  border-radius: 10px;
+  padding: 16px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+}
+.chat-empty {
+  align-items: center;
+  justify-content: center;
+  color: #9aa2ab;
+  text-align: center;
+}
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+.chat-hint {
+  color: #9aa2ab;
+  text-align: center;
+  margin-top: 20px;
+}
+.chat-turn {
+  margin-bottom: 16px;
+}
+.chat-question {
+  background: #eef2ff;
+  color: #1e3a8a;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  word-break: break-word;
+}
+.chat-answer {
+  padding: 8px 12px;
+  color: #1f2328;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.chat-thinking {
+  color: #9aa2ab;
+  font-style: italic;
+  padding: 4px 12px;
+}
+.chat-error {
+  color: #c0362c;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+.chat-input {
+  flex: 1;
+  resize: none;
+  border: 1px solid #d0d5db;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+.chat-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+.chat-send {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.chat-send:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+.chat-send:disabled {
+  background: #a9bde8;
+  cursor: not-allowed;
+}
+/* ---- Small-screen refinements (phones) ---- */
+@media (max-width: 480px) {
+  .app {
+    padding: 16px 12px 32px;
+  }
+  .app-header h1 {
+    font-size: 1.4rem;
+  }
+  .app-header p {
+    font-size: 0.9rem;
+  }
+  .viewer,
+  .chat {
+    height: 360px;
+  }
+  .upload-label {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Markdown rendering inside chat answers */
+.chat-answer h1,
+.chat-answer h2,
+.chat-answer h3 {
+  font-size: 1rem;
+  margin: 8px 0 4px;
+}
+.chat-answer ul,
+.chat-answer ol {
+  margin: 4px 0 4px 20px;
+}
+.chat-answer p {
+  margin: 4px 0;
+}
+.chat-answer code {
+  background: #f0f2f5;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
