@@ -213,6 +213,14 @@ npm install
 npm run dev
 ```
 
+## Sample Documents
+
+Sample PDFs for testing are provided in the [`sample_documents/`](sample_documents/) folder:
+
+- **Text PDFs** — demonstrate standard text extraction.
+- **Scanned PDF** — demonstrates graceful handling of image-based documents
+  (the scanned-PDF detection and fallback path).
+
 The app runs at `http://localhost:5173`.
 
 ---
