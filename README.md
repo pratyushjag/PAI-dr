@@ -25,7 +25,7 @@ and have a grounded conversation about its contents.
 | Backend | Python, FastAPI | Railway |
 | Database | PostgreSQL | Supabase |
 | File storage | Supabase Storage | Supabase |
-| LLM | Google Gemini (`gemini-flash-latest`) | — |
+| LLM | Google Gemini (`gemini-flash-lite-latest`) | — |
 | PDF extraction | PyMuPDF | — |
 | OCR fallback | Tesseract (via pytesseract) | — |
 
@@ -152,11 +152,14 @@ Every functional requirement from the assignment is implemented:
 **Bonus — Deployment:** the full application is deployed across three cloud platforms
 (Vercel, Railway, Supabase).
 
+**Note on Gemini (requirement 5):** The app uses Gemini's free tier; rapid repeated testing may hit rate limits, which reset automatically.
+
 **Note on OCR (requirement 7):** Invalid and scanned PDFs are both handled gracefully —
 invalid files are rejected with a clear message, and scanned PDFs are detected and routed
 through the OCR fallback (Tesseract). The OCR code path is implemented in `pdf_service.py`;
 Tesseract must be present in the runtime environment for scanned-text extraction to fully
 activate.
+
 
 ---
 
@@ -234,7 +237,7 @@ production via the hosting platform's variable settings). A template is provided
 | Variable | Description | Example |
 |---|---|---|
 | `GEMINI_API_KEY` | Google Gemini API key (secret) | `AIza...` |
-| `GEMINI_MODEL` | Gemini model to use | `gemini-flash-latest` |
+| `GEMINI_MODEL` | Gemini model to use | `gemini-flash-lite-latest` |
 | `MAX_DOC_TOKENS` | Max document size sent to the model | `200000` |
 | `DATABASE_URL` | Supabase PostgreSQL connection string (secret) | `postgresql://postgres.xxx:...@...pooler.supabase.com:6543/postgres` |
 | `SUPABASE_URL` | Supabase project URL | `https://xxxx.supabase.co` |
@@ -322,12 +325,20 @@ Interactive documentation is available at `/docs` (Swagger UI) on the backend.
 
 **Initial interface (desktop)**
 
-![Initial UI](screenshots/desktop-initial.png)
+![Initial UI](screenshots/pc_upload_ui_1)
 
 **Document uploaded — text extracted (desktop)**
 
-![Document uploaded](screenshots/desktop-uploaded.png)
+![Document uploaded](screenshots/pc_upload_ui_2)
 
 **Graceful handling of a scanned PDF (desktop)**
 
-![Scanned PDF handling](screenshots/desktop-scanned-handling.png)
+![Scanned PDF handling](screenshots/pc_upload_ui_ocr)
+
+**Mobile — document uploaded and text extracted**
+
+   ![Mobile upload](screenshots/mobile_upload.jpeg)
+
+   **Mobile — asking a question about the document**
+
+   ![Mobile chat](screenshots/mobile_chat.jpeg)
