@@ -8,4 +8,4 @@ pytesseract==0.3.13
 Pillow==10.4.0
 psycopg[binary]==3.3.4
 psycopg-pool==3.2.4
-supabase==2.9.1
+supabase==2.31.0
