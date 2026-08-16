@@ -18,6 +18,12 @@ The name **PAI-dr** stands for "Powered with AI — Document Reader."
 
 ---
 
+## Demo
+
+A short walkthrough of the app: https://drive.google.com/file/d/1H7WaoSo-i5JFYyvG8jh0g4R98QAivvVu/view?usp=drivesdk
+
+---
+
 ## Tech Stack
 
 | Layer | Technology | Hosted on |
