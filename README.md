@@ -3,6 +3,7 @@
 A full-stack web application that extracts text from uploaded PDF documents and answers
 questions about them using a large language model. Upload a PDF, read its extracted text,
 and have a grounded conversation about its contents.
+The name **PAI-dr** stands for "Powered with AI — Document Reader."
 
 ## Live Application
 
