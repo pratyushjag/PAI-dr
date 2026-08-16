@@ -159,9 +159,9 @@ Every functional requirement from the assignment is implemented:
 **Bonus — Deployment:** the full application is deployed across three cloud platforms
 (Vercel, Railway, Supabase).
 
-**Note on Gemini (requirement 5):** The app uses Gemini's free tier; rapid repeated testing may hit rate limits, which reset automatically.
+**Note on Gemini:** The app uses Gemini's free tier; rapid repeated testing may hit rate limits, which reset automatically.
 
-**Note on OCR (requirement 7):** Invalid and scanned PDFs are both handled gracefully —
+**Note on OCR:** Invalid and scanned PDFs are both handled gracefully —
 invalid files are rejected with a clear message, and scanned PDFs are detected and routed
 through the OCR fallback (Tesseract). The OCR code path is implemented in `pdf_service.py`;
 Tesseract must be present in the runtime environment for scanned-text extraction to fully
