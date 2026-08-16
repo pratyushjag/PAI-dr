@@ -171,7 +171,7 @@ activate.
 - Node.js 18+
 - A Google Gemini API key (free tier) — https://aistudio.google.com/apikey
 - A Supabase project (free tier) — https://supabase.com
-
+- *(Optional, for OCR on scanned PDFs)* Tesseract OCR engine — see note below
 ### Backend
 
 ```bash
@@ -186,6 +186,12 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
+
+# (Optional) For OCR on scanned PDFs, install the Tesseract engine:
+#   macOS:         brew install tesseract
+#   Ubuntu/Debian: sudo apt install tesseract-ocr
+#   Windows:       download from https://github.com/UB-Mannheim/tesseract/wiki
+# Without Tesseract, scanned PDFs are still handled gracefully with a clear message.
 
 # Create your environment file from the template and fill in your values
 cp .env.example .env
@@ -209,14 +215,19 @@ cd frontend
 # Install dependencies
 npm install
 
-# Point the frontend at your backend (create frontend/.env.local):
-#   VITE_API_BASE_URL=http://localhost:8000
-
 # Run the dev server
 npm run dev
 ```
 
 The app runs at `http://localhost:5173`.
+
+**Backend URL:** by default the frontend talks to `http://localhost:8000` (the local
+backend), so no configuration is needed for local development. To point it elsewhere,
+create a `frontend/.env.local` file with:
+
+```
+VITE_API_BASE_URL=http://localhost:8000
+```
 
 ---
 
@@ -337,8 +348,8 @@ Interactive documentation is available at `/docs` (Swagger UI) on the backend.
 
 **Mobile — document uploaded and text extracted**
 
-   ![Mobile upload](screenshots/mobile_upload.jpeg)
+![Mobile upload](screenshots/mobile_upload.jpeg)
 
-   **Mobile — asking a question about the document**
+**Mobile — asking a question about the document**
 
-   ![Mobile chat](screenshots/mobile_chat.jpeg)
+![Mobile chat](screenshots/mobile_chat.jpeg)
