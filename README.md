@@ -161,6 +161,10 @@ through the OCR fallback (Tesseract). The OCR code path is implemented in `pdf_s
 Tesseract must be present in the runtime environment for scanned-text extraction to fully
 activate.
 
+**Note on extraction scope:** Extraction covers the text content of PDFs. Embedded figures,
+diagrams, and images are not processed as text, so questions about purely visual elements
+(e.g. "what does Figure 3 show") fall outside the app's scope.
+
 
 ---
 
